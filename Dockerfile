@@ -8,7 +8,7 @@ ARG WGMITMVERSION
 ADD https://github.com/fopina/wireguard-mitm-gui/releases/download/v${WGMITMVERSION}/wgmitmgui_${WGMITMVERSION}_${TARGETOS}_${TARGETARCH}${TARGETVARIANT} /wgmitmgui
 RUN chmod a+x /wgmitmgui
 
-FROM fopina/wireguard:0.2.0
+FROM fopina/wireguard:0.2.1
 
 COPY --from=bin /wgmitmgui /wgmitmgui
 
