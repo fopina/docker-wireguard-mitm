@@ -1,6 +1,6 @@
 ARG WGMITMVERSION=0.1.1
 
-FROM alpine:3.16 as bin
+FROM alpine:3.19 as bin
 ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
@@ -8,7 +8,7 @@ ARG WGMITMVERSION
 ADD https://github.com/fopina/wireguard-mitm-gui/releases/download/v${WGMITMVERSION}/wgmitmgui_${WGMITMVERSION}_${TARGETOS}_${TARGETARCH}${TARGETVARIANT} /wgmitmgui
 RUN chmod a+x /wgmitmgui
 
-FROM fopina/wireguard:0.2.1
+FROM fopina/wireguard:tools-1.0.20210914-r3
 
 COPY --from=bin /wgmitmgui /wgmitmgui
 
